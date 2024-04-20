@@ -29,7 +29,7 @@ const App = () => {
       number: number
     };
   
-    if (!name || !number) {
+    if (name=="" || number=="") {
       setNotify(true);
       setcontent("Enter the details in the fields.");
       setTimeout(() => setNotify(false), 5000);
@@ -38,13 +38,11 @@ const App = () => {
       contactService.create(newcontact).then((newcontact) => {
         const exist = phonelist.some(
           (item) => item.name === newcontact.name || item.number === newcontact.number);
-
-        
         if (!exist) {
           setphonelist(phonelist.concat(newcontact));
           setNotify(true);
-          setTimeout(() => setNotify(false), 5000);
           setMessage(`Successfully added ${newcontact.name}`);
+          setTimeout(() => setNotify(false), 5000);
           setName("");
           setNumber("");
         } else {
