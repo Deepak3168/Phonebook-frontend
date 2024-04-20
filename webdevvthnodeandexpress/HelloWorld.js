@@ -14,7 +14,7 @@ var http = require('http'),
     });
 }
 http.createServer(function(req,res){
-    // normalize url by removing querystring, optional
+    // normalize url by removing querystring, optional g
     // trailing slash, and making lowercase
     var path = req.url.replace(/\/?(?:\?.*)?$/, '')
     .toLowerCase();
